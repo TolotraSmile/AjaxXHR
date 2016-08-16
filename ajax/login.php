@@ -6,4 +6,4 @@
  * Copyright etech consulting 2016
  */
 
-print "data = " . json_encode($_POST);
+print "data = " . json_encode([$_POST, $_GET]);

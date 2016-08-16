@@ -5,24 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-
-
-<script type="application/javascript" src="js/ajax.js"></script>
+<script type="application/javascript" src="js/es6/Ajax.js"></script>
 <script type="application/javascript">
+
     var data = new FormData();
     data.append('user','person');
     data.append('pwd','password');
     data.append('organization','place');
     data.append('requiredkey','key');
 
-    var request = new Ajax('ajax/login.php',data);
-    request.post(function (xhr) {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200 || xhr.status == 0) {
-                console.log(xhr.responseText);
-            }
-        }
-    });
+    var items = {x: 'x',y: 'y'};
+    var xhr = new Ajax('ajax/login.php','post',window);
+    xhr.request(data,function (xhr) {
+        console.log(xhr.responseText);
+    },function (xhr) {
+        console.log(xhr.error);
+    })
+
 </script>
 
 </body>
